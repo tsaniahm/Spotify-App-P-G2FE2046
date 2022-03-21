@@ -1,24 +1,53 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import './styles/style.css';
+import { useEffect } from 'react';
+
+const SPOTIFY_CLIENT_ID = process.env;
 
 function App() {
+  
+  useEffect(() => {
+    console.log(SPOTIFY_CLIENT_ID);
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
+    <React.Fragment>
+      <div className="playlist-container">
+        <h1>CREATE PLAYLIST</h1>
+        <img src="images/spotify.png" alt="#" />
+        <form>
+          <label className="form-label" htmlFor="playlist-title">Playlist Title*</label>
+          <br />
+          <input
+            type="text"
+            className="input-title"
+            id="playlist-title"
+            defaultValue=""
+            placeholder="Input your playlist title"
+          />
+          <br />
+          <label className="form-label" htmlFor="playlist-desc">Description*</label>
+          <br />
+          <textarea
+            type="text"
+            className="input-desc"
+            id="playlist-desc"
+            defaultValue=""
+            placeholder="Input the description"
+          ></textarea>
+          <input id="submit" className="submit-button" type="button" defaultValue="CREATE" />
+        </form>
+      </div>
+      <div className="song-container">
+        <img src="images/album.jpg" alt="#" />
+        <h3 className="title">Death with Dignity</h3>
+        <p className="artist">Sufjan Stevens</p>
+        <p className="album">
+          Album . Carrie & Lowell . 2021
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+        <button className="button-play">Add to playlist</button>
+      </div>
+    </React.Fragment>
   );
 }
 
