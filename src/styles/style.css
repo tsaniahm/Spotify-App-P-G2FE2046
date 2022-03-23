@@ -93,6 +93,11 @@ body {
   
   .album {
     color: white;
+    margin-bottom: -12px;
+  }
+
+  .year {
+    color: white;
   }
   
   .button-play {
